@@ -1,0 +1,204 @@
+{
+  "main": {
+    "id": "1b78880a545ad59e",
+    "type": "split",
+    "children": [
+      {
+        "id": "20967542d4933759",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bc648c8a007ed53e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Bases de Mathématiques/Base de maths.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Base de maths"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "129bf3b2dd3e0431",
+    "type": "split",
+    "children": [
+      {
+        "id": "c5bc017f4a894b67",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3f3f3fb48839ef7a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "2f24b6c1d51b23ab",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "fd0317be033bbbd1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "49f7637694249b25",
+    "type": "split",
+    "children": [
+      {
+        "id": "580d08a735608477",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d78b869d6e0346b3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "533302eda2e8f5d1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "555706c9238fe657",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "bc02f7ca1f2f2924",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "omnisearch:Omnisearch": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "bc648c8a007ed53e",
+  "lastOpenFiles": [
+    "Analyse 1/TD1.md",
+    "Analyse 1/Les nombres réels.md",
+    "Analyse 1/Analyse 1.md",
+    "Analyse 1/expose_analyseS1_chap 1.pdf",
+    "Bases de Mathématiques/Le langage de mathématique et le raisonement mathématique.md",
+    "Bases de Mathématiques/Bases de Mathématiques.md",
+    "Bases de Mathématiques/Base de maths.md",
+    "Apprendre à apprendre.md",
+    "Untitled.canvas",
+    "Excalidraw/Drawing 2025-09-20 11.01.37.excalidraw.md",
+    "Excalidraw",
+    "Bases de Mathématiques/Untitled.md",
+    "Fondement de l'informatique/Fondement de l'informatique.md",
+    "English.md",
+    "2025-09-15.md",
+    "Fondement de l'informatique/COUR 1.md",
+    "Analyse 1/Ressources/Cours magistraux/CM Chapitre 1.pdf",
+    "Analyse 1/Ressources/Cours magistraux/Cours magistraux.md",
+    "Analyse 1/Ressources/Cours magistraux",
+    "Analyse 1/Ressources/{211EAA98-59B4-4B49-B44B-B623B2909C49}.png",
+    "Vault.md",
+    "Analyse 1/Ressources/Ressources.md",
+    "Analyse 1/Ressources",
+    "Tags",
+    "Fondement de l'informatique",
+    "Bases de Mathématiques",
+    "Analyse 1"
+  ]
+}
