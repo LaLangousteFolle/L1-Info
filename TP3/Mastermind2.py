@@ -49,6 +49,7 @@ def devine(longeur, n):
     print(temp)
 
     while not (found):
+        H1 = []
         Ens_H.append(temp)
         essais += 1
         juste = int(input("Combien sont bien placés?\n"))
@@ -67,8 +68,23 @@ def devine(longeur, n):
                     H1.append(H[i])
         H = H1
         temp = H[randint(0, len(H) - 1)]
-        Ens_H.append(temp)
         print(temp)
 
 
-print(devine(2, 3))
+def main():
+    print("Pensez à un code secret, je vais essayer de le deviner !")
+    print()
+
+    longueur = int(input("Quelle est la longueur de votre code secret ? "))
+    n = int(input("Quelle est la valeur maximale des chiffres (de 1 à 9) ? "))
+
+    print(
+        f"\nParfait ! Votre code fait {longueur} chiffres avec des valeurs de 1 à {n}"
+    )
+    print()
+
+    devine(longueur, n)
+
+
+if __name__ == "__main__":
+    main()
