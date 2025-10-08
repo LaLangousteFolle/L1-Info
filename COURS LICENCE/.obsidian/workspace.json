@@ -20,8 +20,25 @@
               "icon": "lucide-file",
               "title": "TD 2"
             }
+          },
+          {
+            "id": "2ccfe9537b8a5b12",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Analyse 1/Ressources/Sujets TDs/Sujet TD2.pdf",
+                "page": 2,
+                "left": -8,
+                "top": 813,
+                "zoom": 1.8923994920003495
+              },
+              "icon": "lucide-file-text",
+              "title": "Sujet TD2"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -171,10 +188,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "990dbcec75afff8a",
+  "active": "2ccfe9537b8a5b12",
   "lastOpenFiles": [
-    "Analyse 1/Ressources/Sujets TDs/Sujet TD2.pdf",
     "Analyse 1/TDs/TD 2.md",
+    "Analyse 1/Ressources/Sujets TDs/Sujet TD2.pdf",
     "Fondement de l'informatique/TDs/TD-3-Simplification-de-fonctions-logiques.pdf",
     "Analyse 1/Ressources/Cours magistraux/CM Chapitre 1.pdf",
     "Analyse 1/Ressources/Cours magistraux/Cours magistraux.md",
