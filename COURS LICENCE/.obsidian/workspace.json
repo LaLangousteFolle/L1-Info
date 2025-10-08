@@ -4,41 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "20967542d4933759",
+        "id": "e3361a8026421368",
         "type": "tabs",
         "children": [
           {
-            "id": "bc648c8a007ed53e",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Fondement de l'informatique/TDs/TD-3-Simplification-de-fonctions-logiques.pdf",
-                "page": 1,
-                "left": -8,
-                "top": 846,
-                "zoom": 1.8923106836182406
-              },
-              "icon": "lucide-file-text",
-              "title": "TD-3-Simplification-de-fonctions-logiques"
-            }
-          },
-          {
-            "id": "15d8ac103ef23877",
+            "id": "990dbcec75afff8a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Fondement de l'informatique/TDs/TD 3.md",
+                "file": "Analyse 1/TDs/TD 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TD 3"
+              "title": "TD 2"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -188,9 +171,22 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "3f3f3fb48839ef7a",
+  "active": "990dbcec75afff8a",
   "lastOpenFiles": [
+    "Analyse 1/Ressources/Sujets TDs/Sujet TD2.pdf",
+    "Analyse 1/TDs/TD 2.md",
     "Fondement de l'informatique/TDs/TD-3-Simplification-de-fonctions-logiques.pdf",
+    "Analyse 1/Ressources/Cours magistraux/CM Chapitre 1.pdf",
+    "Analyse 1/Ressources/Cours magistraux/Cours magistraux.md",
+    "Analyse 1/Ressources/Sujets TDs/Sujet TD1.pdf",
+    "Analyse 1/Ressources/Cours magistraux/CM Chapitre 2.pdf",
+    "Analyse 1/Ressources/Sujets TDs",
+    "Analyse 1/Ressources/Ressources.md",
+    "Analyse 1/Ressources/{211EAA98-59B4-4B49-B44B-B623B2909C49}.png",
+    "Analyse 1/expose_analyseS1_chap 1.pdf",
+    "Analyse 1/Analyse 6 Octobre.md",
+    "Analyse 1/TDs",
+    "Analyse 1/Les nombres réels.md",
     "Fondement de l'informatique/TDs/TD 3.md",
     "Fondement de l'informatique/TDs/TD 2.md",
     "Fondement de l'informatique/TDs/TD-2-Algebre-de-Boole.pdf",
@@ -200,26 +196,15 @@
     "English.md",
     "Vault.md",
     "Bases de Mathématiques/Base de maths.md",
-    "Analyse 1/TD1.md",
-    "Analyse 1/Les nombres réels.md",
+    "Analyse 1/TDs/TD1.md",
     "Analyse 1/Analyse 1.md",
-    "Analyse 1/expose_analyseS1_chap 1.pdf",
     "Bases de Mathématiques/Le langage de mathématique et le raisonement mathématique.md",
     "Bases de Mathématiques/Bases de Mathématiques.md",
     "Apprendre à apprendre.md",
     "Untitled.canvas",
     "Excalidraw/Drawing 2025-09-20 11.01.37.excalidraw.md",
-    "Excalidraw",
     "Bases de Mathématiques/Untitled.md",
     "Fondement de l'informatique/Fondement de l'informatique.md",
-    "Fondement de l'informatique/COUR 1.md",
-    "Analyse 1/Ressources/Cours magistraux/CM Chapitre 1.pdf",
-    "Analyse 1/Ressources/Cours magistraux/Cours magistraux.md",
-    "Analyse 1/Ressources/Cours magistraux",
-    "Analyse 1/Ressources/{211EAA98-59B4-4B49-B44B-B623B2909C49}.png",
-    "Analyse 1/Ressources/Ressources.md",
-    "Analyse 1/Ressources",
-    "Tags",
-    "Fondement de l'informatique"
+    "Fondement de l'informatique/COUR 1.md"
   ]
 }
