@@ -3,7 +3,7 @@
 - We haven't seen the Robinson *for* years
 - They have been playing bridge *for* two hours
 - Ireland has been a republic since 1922
-- I haven't smoked a cigarette *for*six weeks
+- I haven't smoked a cigarette *for* six weeks
 - He has been living in New York *since* he was twelve
 - We've been waiting for you *for* a quarter of an hour
 - She's been learning English *for* five years

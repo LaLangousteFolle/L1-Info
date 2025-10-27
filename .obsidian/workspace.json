@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "English/Anglais 10-14-25.md",
+                "file": "C/CMs/Bases de la prog C et C++.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Anglais 10-14-25"
+              "title": "Bases de la prog C et C++"
             }
           }
         ]
@@ -183,10 +183,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6a7fc17464c6cf70",
+  "active": "3f3f3fb48839ef7a",
   "lastOpenFiles": [
-    "English.md",
+    "C/CMs",
     "English/Anglais 10-14-25.md",
+    "C/CMs/Bases de la prog C et C++.md",
+    "English/English 21st of October.md",
+    "English.md",
     "English/English.md",
     "English",
     "Analyse 1/Ressources/Sujets TDs/Sujet TD2.pdf",
