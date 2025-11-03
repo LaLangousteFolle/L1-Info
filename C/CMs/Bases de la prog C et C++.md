@@ -53,7 +53,7 @@ A la fin d'un bloc -> la zone est vidée
 
 La portée 
 Une variable dans un bloc a une portée locale 
-
+    1
 
 
 

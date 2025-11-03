@@ -164,7 +164,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,6 +186,9 @@
   },
   "active": "9f05320701032a19",
   "lastOpenFiles": [
+    "C/TP2/a.out",
+    "C/TP2/Exo2-3.c",
+    "C/TP2/hello.c",
     "C/TP2/Exo2.c",
     "C/TP1/exo6.c",
     "C/TP1/exo5.c",
@@ -193,9 +197,6 @@
     "C/TP1/exo2.c",
     "C/TP1/exo1.c",
     "C/TP1",
-    "C/TP2/TP1/exo6.c",
-    "C/TP2/TP1/exo5.c",
-    "C/TP2/TP1/exo4.c",
     "English/Anglais 10-14-25.md",
     "C/CMs/Bases de la prog C et C++.md",
     "English/English 21st of October.md",
