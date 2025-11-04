@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/CMs/Bases de la prog C et C++.md",
+                "file": "Fondement de l'informatique/04 nov.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bases de la prog C et C++"
+              "title": "04 nov"
             }
           }
         ]
@@ -164,8 +164,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,6 +185,9 @@
   },
   "active": "9f05320701032a19",
   "lastOpenFiles": [
+    "C/CMs/Bases de la prog C et C++.md",
+    "Fondement de l'informatique/04 nov.md",
+    "C/TP2/Exo2-4.c",
     "C/TP2/a.out",
     "C/TP2/Exo2-3.c",
     "C/TP2/hello.c",
@@ -195,10 +197,7 @@
     "C/TP1/exo4.c",
     "C/TP1/exo3.c",
     "C/TP1/exo2.c",
-    "C/TP1/exo1.c",
-    "C/TP1",
     "English/Anglais 10-14-25.md",
-    "C/CMs/Bases de la prog C et C++.md",
     "English/English 21st of October.md",
     "English.md",
     "English/English.md",
@@ -210,7 +209,6 @@
     "Analyse 1/Les nombres réels.md",
     "Fondement de l'informatique/TDs/TD 3.md",
     "Fondement de l'informatique/TDs/TD 2.md",
-    "Fondement de l'informatique/Untitled.md",
     "2025-09-15.md",
     "Vault.md",
     "Bases de Mathématiques/Base de maths.md",
