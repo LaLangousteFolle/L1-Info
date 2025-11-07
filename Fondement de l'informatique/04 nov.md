@@ -18,3 +18,9 @@ $l$ : longueur de l'ecriture
 $N = \sum _{i=0}^{l-1} r_{i}*b^i$
 $\space = r_{0}*b^0+r_{1}*b^1+r_{2}*b^2+r_{3}*b^3+\dots\dots$
 $\space = r_{0}+b(r_{1}+r_{2}b+r_{3}b^2)+\dots\dots$
+
+Positif : binaire naturel
+Négatif : complément a 2
+$\Rightarrow$ binaire naturel
+	inversion des bits
+	+1

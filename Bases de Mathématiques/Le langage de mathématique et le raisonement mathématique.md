@@ -154,3 +154,4 @@ delta = $2^{2}-4 \times 1\times 2= -4<0$
 Donc $X^{2}-2X+2$ n'a pas de zéro: contradiction avec $x^{2} -2x=0$
 Conclusion:
 $\forall x \in \mathbb R, x^{2}$
+$\Gamma$

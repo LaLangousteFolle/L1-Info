@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Fondement de l'informatique/04 nov.md",
+                "file": "C/TD2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04 nov"
+              "title": "TD2"
             }
           }
         ]
@@ -164,7 +164,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,10 +186,18 @@
   },
   "active": "9f05320701032a19",
   "lastOpenFiles": [
+    "Bases de Mathématiques/TD4.md",
+    "C/TD2.md",
+    "Bases de Mathématiques/TD 3.md",
+    "English/English 04-11-2025.md",
+    "Drawing 2025-11-05 11.36.51.excalidraw.md",
+    "Excalidraw/Drawing 2025-11-05 11.36.51.excalidraw.md",
+    "Bases de Mathématiques/Le langage de mathématique et le raisonement mathématique.md",
+    "Excalidraw",
+    "Fondement de l'informatique/04 nov.md",
     "C/TP2/a.out",
     "C/TP2/primal-tools.h",
     "C/CMs/Bases de la prog C et C++.md",
-    "Fondement de l'informatique/04 nov.md",
     "C/TP2/Exo2-4.c",
     "C/TP2/Exo2-3.c",
     "C/TP2/hello.c",
@@ -196,8 +205,6 @@
     "C/TP1/exo6.c",
     "C/TP1/exo5.c",
     "C/TP1/exo4.c",
-    "C/TP1/exo3.c",
-    "C/TP1/exo2.c",
     "English/Anglais 10-14-25.md",
     "English/English 21st of October.md",
     "English.md",
@@ -215,13 +222,7 @@
     "Bases de Mathématiques/Base de maths.md",
     "Analyse 1/TDs/TD1.md",
     "Analyse 1/Analyse 1.md",
-    "Bases de Mathématiques/Le langage de mathématique et le raisonement mathématique.md",
     "Bases de Mathématiques/Bases de Mathématiques.md",
-    "Apprendre à apprendre.md",
-    "Untitled.canvas",
-    "Excalidraw/Drawing 2025-09-20 11.01.37.excalidraw.md",
-    "Bases de Mathématiques/Untitled.md",
-    "Fondement de l'informatique/Fondement de l'informatique.md",
-    "Fondement de l'informatique/COUR 1.md"
+    "Untitled.canvas"
   ]
 }
