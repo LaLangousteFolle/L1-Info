@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/TD2.md",
+                "file": "C/Wiki/Header files en C.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TD2"
+              "title": "Header files en C"
             }
           }
         ]
@@ -186,8 +186,13 @@
   },
   "active": "9f05320701032a19",
   "lastOpenFiles": [
-    "Bases de Mathématiques/TD4.md",
+    "C/TP3/Exo2-5.c",
+    "C/Wiki/Pointeurs.md",
+    "C/Wiki/Header files en C.md",
+    "Sytaxe pointeurs.png",
     "C/TD2.md",
+    "C/Wiki",
+    "Bases de Mathématiques/TD4.md",
     "Bases de Mathématiques/TD 3.md",
     "English/English 04-11-2025.md",
     "Drawing 2025-11-05 11.36.51.excalidraw.md",
@@ -204,7 +209,6 @@
     "C/TP2/Exo2.c",
     "C/TP1/exo6.c",
     "C/TP1/exo5.c",
-    "C/TP1/exo4.c",
     "English/Anglais 10-14-25.md",
     "English/English 21st of October.md",
     "English.md",
@@ -220,9 +224,6 @@
     "2025-09-15.md",
     "Vault.md",
     "Bases de Mathématiques/Base de maths.md",
-    "Analyse 1/TDs/TD1.md",
-    "Analyse 1/Analyse 1.md",
-    "Bases de Mathématiques/Bases de Mathématiques.md",
     "Untitled.canvas"
   ]
 }

@@ -1,0 +1,1 @@
+Les headerfiles en C ont diverses fonctions.
