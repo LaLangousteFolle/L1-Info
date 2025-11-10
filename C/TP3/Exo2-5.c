@@ -1,40 +1,52 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void    modify(int min, int max)
+void    modify(double min, double max)
 {
-    int     *modified_min;
-    int     *modifier_max;
-    modified_min = &min;
-    modifier_max = &max;
-    *modified_min = *modified_min * 2;
-    *modifier_max = *modifier_max / 2;
+    double *pMin;
+    double *pMax;
+
+    pMin = &min;
+    pMax = &max;
+
+    *pMin = *pMin * 2;
+    *pMax = *pMax / 2;
 }
 
-bool    check(int *min, int *max)
+bool    check(double min, double max)
 {
-    if (*min < *max)
-        return(true);
+    if (min > max)
+        return(false);
     else
-     return(false);
+     return(true);
 }
 
 int     main(void)
 {
-    int     *min;
-    int     *max;
-    bool    user, user_tried;
-    user_tried = false;
-    while(user!= false)
+    bool        user;
+    double      min, max;
+
+
+    printf("Entrez le min : ");
+    scanf("%lf", &min);
+    printf("Entrez le max : ");
+    scanf("%lf", &max);
+
+    if (! check(min, max))
     {
-        user = check(min, max);
-        if (user != true)
-            printf("Vos nombres ne sont pas corrects /n");
-            printf("Entrez le min : ");
-            scanf("%i", min);
-            printf("Entrez le max : ");
-            scanf("%i", max);
+        printf("Vos nombres ne sont pas corrects.\n");
+        printf("Entrez le min : ");
+        scanf("%lf", &min);
+        printf("Entrez le max : ");
+        scanf("%lf", &max);
     }
+    if (check(min, max))
+        printf("Vos nombres sont corrects.\n");
+    modify(min, max);
+    if (! check(min, max))
+        printf("Resultat min : %lf et max : %lf (ils ne respectent pas l'ordre)\n",min , max);
+    else
+        printf("Resultat min : %lf et max : %lf (ils respectent l'ordre)\n",min , max);
 
     return(0);
 }
