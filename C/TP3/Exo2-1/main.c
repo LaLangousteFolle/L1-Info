@@ -1,8 +1,4 @@
-#include <stdio.h>
-int addOne ( int number )
-{
-    return(number = number +1);
-}
+#include "Exo2-1.h"
 
 int main() {
 

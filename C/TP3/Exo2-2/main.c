@@ -1,9 +1,4 @@
-#include <stdio.h>
-
-void    getOpposite(int *user_entry)
-{
-    *user_entry = (*user_entry * (-1));
-}
+#include "Exo2-2.h"
 
 int     main(void)
 {
