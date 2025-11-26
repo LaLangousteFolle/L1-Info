@@ -2,8 +2,7 @@
 
 int     main(void)
 {
-    Lamp lamp = createLamp1();
-    lamp.color = 2;
+    Lamp lamp =createLamp2(4, true);
     printColor(&lamp);
     return(0);
 }

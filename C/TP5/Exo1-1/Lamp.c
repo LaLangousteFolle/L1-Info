@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "lamp.h"
+#include "Lamp.h"
 
-Lamp createLamp()
+Lamp createLamp1(void)
 {
     Lamp lamp;
     lamp.isOn = false;
