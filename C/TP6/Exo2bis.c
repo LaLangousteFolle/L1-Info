@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void    creatTab(int size)
+void       creatTab(double *array, int size)
 {
     double *tab = malloc((sizeof(double)*size));
     for (int i  = 0; i < size; i++)
@@ -12,7 +12,6 @@ void    creatTab(int size)
     {
         printf("%lf ", tab[i]);
     }
-    free(tab);
 }
 
 int     main(void)
@@ -20,6 +19,10 @@ int     main(void)
     int size;
     printf("Veuillez entrer la taille souhaitee : ");
     scanf("%d", &size);
-    double tab[size];
+    double *array;
+    creatTab(array, size);
+    for (int i = 0; i < size; i++)
+        printf("%lf", array[i]);
+    free(array);
     return(0);
 }

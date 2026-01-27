@@ -6,7 +6,7 @@ int *getPositiveValue(int *tab, int size)
     for (int i = 0; i < size;i++)
     {
         if (tab[i] >=0)
-            tab2[i] = tab2[i];
+            tab2[i] = tab[i];
     }
     return(tab2);
 }

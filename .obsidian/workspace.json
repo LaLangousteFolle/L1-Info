@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "e56d7cb6eaa0513b",
+        "id": "be11214a6534d676",
         "type": "tabs",
         "children": [
           {
-            "id": "4d78a775800b0683",
+            "id": "c4ac26605c4b9ed0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/TD5.md",
+                "file": "C/CMs/Jeu de role.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TD5"
-            }
-          },
-          {
-            "id": "d75eae3efe5c645b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TD6.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "TD6"
+              "title": "Jeu de role"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -199,8 +184,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d75eae3efe5c645b",
+  "active": "c4ac26605c4b9ed0",
   "lastOpenFiles": [
+    "C/CMs/Jeu de role.md",
+    "C/TD5.md",
+    "TD6.md",
     "C/TP6/Exo6/Exo6.c",
     "C/TP6/Exo6/Census.h",
     "C/TP6/Exo6",
@@ -211,10 +199,7 @@
     "C/TP6/Exo3.c",
     "C/TP6/Exo3",
     "C/TP6/a.out",
-    "C/TP6/Exo2bis.c",
     "TD5 Ex3.png",
-    "C/TD5.md",
-    "TD6.md",
     "TD3.png",
     "TD3 ex 4_4bis.png",
     "2025-09-15.md",
