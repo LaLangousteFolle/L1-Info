@@ -1,5 +1,6 @@
 {
   "theme": "system",
-  "cssTheme": "Primary",
-  "baseFontSize": 20
+  "cssTheme": "AnuPpuccin",
+  "baseFontSize": 20,
+  "accentColor": "#9b5db1"
 }

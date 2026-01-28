@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/CMs/Jeu de role.md",
+                "file": "Structure des ordinateurs/CM1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Jeu de role"
+              "title": "CM1"
             }
           }
         ]
@@ -44,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "Explorateur de fichiers"
             }
           },
           {
@@ -164,17 +164,16 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
+      "switcher:Ouvrir le sélecteur rapide": false,
+      "graph:Ouvrir la vue graphique": false,
+      "canvas:Créer une nouvelle toile": false,
+      "daily-notes:Ouvrir la note quotidienne": false,
+      "templates:Insérer le modèle": false,
+      "command-palette:Ouvrir la palette de commandes": false,
       "bases:Create new base": false,
       "omnisearch:Omnisearch": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
@@ -184,8 +183,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c4ac26605c4b9ed0",
+  "active": "3f3f3fb48839ef7a",
   "lastOpenFiles": [
+    "Mathematiques discretes",
+    "Pasted image 20260128120537.png",
+    "Fondement de l'informatique/COUR 1.md",
+    "Structure des ordinateurs/CM1.md",
+    "English/ANGLAIS 2701.md",
+    "Structure des ordinateurs",
+    "CMI/Seminaire de recherche.md",
     "C/CMs/Jeu de role.md",
     "C/TD5.md",
     "TD6.md",
@@ -198,12 +204,10 @@
     "C/TP6/Exo4.c",
     "C/TP6/Exo3.c",
     "C/TP6/Exo3",
-    "C/TP6/a.out",
     "TD5 Ex3.png",
     "TD3.png",
     "TD3 ex 4_4bis.png",
     "2025-09-15.md",
-    "CMI/Seminaire de recherche.md",
     "English/English 25 11.md",
     "English/English 04-11-2025.md",
     "English/English 21st of October.md",
@@ -222,10 +226,6 @@
     "Fondement de l'informatique/04 nov.md",
     "C/CMs/Bases de la prog C et C++.md",
     "English/Anglais 10-14-25.md",
-    "English.md",
-    "English/English.md",
-    "Analyse 1/TDs/TD 2.md",
-    "Analyse 1/Ressources/Cours magistraux/Cours magistraux.md",
     "Analyse 1/Ressources/{211EAA98-59B4-4B49-B44B-B623B2909C49}.png",
     "Untitled.canvas"
   ]
