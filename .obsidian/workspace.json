@@ -4,24 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "be11214a6534d676",
+        "id": "b2859e2fd2949372",
         "type": "tabs",
         "children": [
           {
-            "id": "c4ac26605c4b9ed0",
+            "id": "1268920a6b93a106",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematiques discretes/TD1.md",
+                "file": "Mathematiques discretes/TD3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TD1"
+              "title": "TD3"
+            }
+          },
+          {
+            "id": "982c8330581ad36c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "English/100225.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "100225"
+            }
+          },
+          {
+            "id": "2fe7afef6d1efddb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Mathematiques discretes/Maths discrètes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Maths discrètes"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -184,20 +213,41 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c4ac26605c4b9ed0",
+  "active": "982c8330581ad36c",
   "lastOpenFiles": [
-    "Mathematiques discretes/Chapitre 1.md",
-    "Mathematiques discretes/TD1.md",
-    "Structure des ordinateurs/CM1.md",
-    "Mathematiques discretes",
-    "Pasted image 20260128120537.png",
-    "Fondement de l'informatique/COUR 1.md",
+    "English/English 21st of October.md",
+    "English/English 04-11-2025.md",
+    "English/English 25 11.md",
+    "English/Anglais 10-14-25.md",
+    "English/100225.md",
     "English/ANGLAIS 2701.md",
-    "Structure des ordinateurs",
-    "CMI/Seminaire de recherche.md",
-    "C/CMs/Jeu de role.md",
-    "C/TD5.md",
+    "English/English.md",
+    "System d'exploitation.md",
+    "Mathematiques discretes/TD3.md",
+    "Mathematiques discretes/Maths discrètes.md",
+    "Mathematiques discretes/Chapitre 1.md",
+    "CMI/Sans titre.md",
+    "Structure des ordinateurs/CM2.md",
+    "Structure des ordinateurs/CM1.md",
+    "Mathematiques discretes/TD1.md",
+    "TD3 ex 4_4bis.png",
+    "TD5 Ex3.png",
+    "Sytaxe pointeurs.png",
+    "Pasted image 20260128120537.png",
+    "TD3.png",
     "TD6.md",
+    "Analyse 1/Analyse 6 Octobre.md",
+    "Bases de Mathématiques/TD 3.md",
+    "Bases de Mathématiques/Le langage de mathématique et le raisonement mathématique.md",
+    "Bases de Mathématiques/Bases de maths Chapitre 2.md",
+    "Bases de Mathématiques/Bases de Mathématiques.md",
+    "Bases de Mathématiques/Base de maths.md",
+    "C/Wiki/Pointeurs.md",
+    "CMI/Seminaire de recherche.md",
+    "Fondement de l'informatique/TDs/TD 2.md",
+    "Fondement de l'informatique/COUR 1.md",
+    "Mathematiques discretes",
+    "Structure des ordinateurs",
     "C/TP6/Exo6/Exo6.c",
     "C/TP6/Exo6/Census.h",
     "C/TP6/Exo6",
@@ -206,27 +256,6 @@
     "C/TP6/Exo5.c",
     "C/TP6/Exo4.c",
     "C/TP6/Exo3.c",
-    "TD5 Ex3.png",
-    "TD3.png",
-    "TD3 ex 4_4bis.png",
-    "2025-09-15.md",
-    "English/English 25 11.md",
-    "English/English 04-11-2025.md",
-    "English/English 21st of October.md",
-    "Fondement de l'informatique/25112025.md",
-    "C/TD3.md",
-    "C/Wiki/Pointeurs.md",
-    "Methodologie de travail.md",
-    "C/TD2.md",
-    "C/Wiki/Header files en C.md",
-    "Sytaxe pointeurs.png",
-    "Bases de Mathématiques/TD4.md",
-    "Bases de Mathématiques/TD 3.md",
-    "Drawing 2025-11-05 11.36.51.excalidraw.md",
-    "Excalidraw/Drawing 2025-11-05 11.36.51.excalidraw.md",
-    "Bases de Mathématiques/Le langage de mathématique et le raisonement mathématique.md",
-    "Fondement de l'informatique/04 nov.md",
-    "C/CMs/Bases de la prog C et C++.md",
     "Analyse 1/Ressources/{211EAA98-59B4-4B49-B44B-B623B2909C49}.png",
     "Untitled.canvas"
   ]
