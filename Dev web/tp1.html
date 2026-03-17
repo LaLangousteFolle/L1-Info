@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <style>
+  table, th, td {
+  border: 1px solid black;
+}
+  </style>
+<head>
+    <tittle>TP1</tittle>
+</head>
+  <body>
+    <q>Ceci est une quote</q>
+    <blockquote> Ceci est une autre quote :3</blockquote>
+    <p>La difference entre ces deux quote est que la balise "q" ajoute des guillemet tandis que l'autre en fait un block et effectue une tabulation</p>
+    <p>
+Tokyo, ville la plus chère du monde, Asuncion la moins chère, Paris 17e
+
+PARIS (AFP) - Tokyo est la ville la plus chère du monde, suivie de Londres tandis que Paris arrive à la 17e place et Asuncion arrive à la dernière place du classement, selon une enquête réalisée par le cabinet de conseil Mercer HRC.
+La capitale japonaise occupait déjà la première place du classement l'année dernière, en revanche la capitale anglaise est remontée de la cinquième à la deuxième place.
+C'est la russe Moscou qui monte sur la troisième marche du podium, suivie d'une autre ville japonaise Osaka et de Hong-Kong en cinquième position.
+
+New York, la ville la plus onéreuse d'Amérique du Nord, s'affiche à la 12e place du classement. Et c'est au sud du continent américain, à Asuncion au Paraguay que la vie est la moins chère du monde, selon cette étude.
+
+"Les importantes modifications dans le classement sur le coût de la vie sont dues aux fluctuations monétaires, notamment à celle du dollar et de l'euro", relève l'enquête. S'agissant de Paris, l'étude note que "le logement reste très difficile à trouver surtout lorsqu'il s'agit d'habitations meublées".
+
+Quatre des cinq villes les moins chères d'Europe font partie des nouveaux entrants de l'Union européenne: Ljubljana (Slovénie), Vilnius (Lituanie), Limassol (Chypre) et Bucarest (Roumanie).
+
+Parmi les cinquante villes les plus chères, près de la moitié (24) sont européennes. Dans cette zone géographique, Londres, la plus chère en raison "du logement et du transport", est suivie de Copenhague (Danemark) et de Milan (Italie).
+
+En Amérique Latine, c'est la capitale du Pérou, Lima, qui se situe à la première place sur le continent.
+
+L'étude, qui porte sur 144 villes, se fonde sur des critères relatifs au logement, à la nourriture, à l'habillement et les appareils ménagers ou encore aux transports et aux loisirs.
+    </p>
+<hr style="width:70%;">
+    <code style="color:blue;"> 
+      <pre>
+int main() {
+
+  int i, n;
+  bool is_prime = true;
+
+  cout << "Enter a positive integer: ";
+  cin >> n;
+
+  // 0 and 1 are not prime numbers
+  if (n == 0 || n == 1) {
+    is_prime = false;
+  }
+
+  // loop to check if n is prime
+  for (i = 2; i <= n/2; ++i) {
+    if (n % i == 0) {
+      is_prime = false;
+      break;
+    }
+  }
+
+  if (is_prime)
+    cout << n << " is a prime number";
+  else
+    cout << n << " is not a prime number";
+
+  return 0;
+}
+        </pre>
+    </code>
+<hr style="width:70%;">
+<blockquote>
+  <pre>
+La Cigale, ayant chanté
+Tout l’été,
+Se trouva fort dépourvue
+Quand la bise fut venue :
+Pas un seul petit morceau
+De mouche ou de vermisseau.
+Elle alla crier famine
+Chez la Fourmi sa voisine,
+La priant de lui prêter
+Quelque grain pour subsister
+Jusqu’à la saison nouvelle.
+« Je vous paierai, lui dit-elle,
+Avant l’Oût, foi d’animal,
+Intérêt et principal.  »
+La Fourmi n’est pas prêteuse :
+C’est là son moindre défaut.
+Que faisiez-vous au temps chaud ?
+Dit-elle à cette emprunteuse.
+– Nuit et jour à tout venant
+Je chantais, ne vous déplaise.
+– Vous chantiez ? j’en suis fort aise.
+Eh bien! dansez maintenant.
+
+Jean de La Fontaine
+  </pre>
+</blockquote>
+<hr style="width:70%;">
+<var>x = 2x + 3<char>³</char></var>
+<hr style="width:70%;">
+<q>L'équation <var><b>y = mx<char>³</char>+b</b></var> utilise les variables <span style="color:red;">&lt;var&gt;y&lt;/var&gt;</span> et <span style="color:red;">&lt;var&gt;x&lt;/var&gt;</span></q>
+
+<hr style="width:70%;">
+<table>
+  <tr>
+  <th>Euros</<th>
+  <th>Francs</th>
+  </tr>
+  <tr>
+    <td>1<char>€</char></td>
+    <td>6,56 F</td>
+  </tr>
+<tr>
+    <td colspan = "2">...ainsi de suite pour chaque nouvelle ligne...</td>
+</tr>
+
+  <tr>
+    <td>15,24<char>€</char></td>
+    <td>100 F</td>
+  </tr>
+</table>
+
+<hr style="width:70%;" align = "center">
+
+<table style = "width:70%;">
+  <tr>
+    <th>Titre 1</th>
+    <th>Titre 2</th>
+    <th>Titre 3</th>
+  </tr>
+  <tr>
+    <td>Cellule Simple</td>
+    <td>Cellule Simple</td>
+    <td>Cellule Simple</td>
+  </tr>
+  <tr>
+    <td colspan = "2" align = "right">Deux colone assemblees</td>
+    <td>Cellule Simple</td>
+  </tr>
+  <tr>
+    <td>Cellule Simple</td>
+    <td>Cellule Simple</td>
+    <td rowspan = "2" align = "top" align = "left">Deux lignes assemblees</td>
+  </tr>
+  <tr>
+    <td>Cellule Simple</td>
+    <td>Cellule Simple</td>
+  </tr>
+  <tr>
+    <td>Cellule Simple</td>
+    <td rowspan = "2" colspan = "2"align = "center">Deux lignes et deux colones</td>
+  </tr>
+  <tr>
+    <td>Cellule Simple</td>
+  </tr>
+  </tr>
+
+</table>
+
+<hr style="width:70%;" align = "center">
+<table>
+  <tr>
+    <th colspan = "2" rowspan = "2"></th>
+    <th colspan = "2"> Preference</th>
+  </tr>
+  <tr>
+    <th style = "border-collapse:collapse"> Deguster des Kumquat </th>
+    <th style = "border-collapse:collapse"> Pocher oeil</th>
+  </tr>
+  <tr>
+    <th rowspan = "4" style = "border-colapse:colapse">Sexe</th>
+    <th style = "border-colapse:colapse">Hommes en dessous de 18 ans</th>
+    <td>94%</td>
+    <td>6%</td>
+  </tr>
+  <tr>
+    <th style = "border-colapse:colapse">Hommes au dessus de 18 ans</th>
+    <td>73%</td>
+    <td>27%</td>
+  </tr>
+  <tr>
+    <th style = "border-colapse:colapse">Femmes en dessous de 18 ans</th>
+    <td>34%</td>
+    <td>66%</td>
+  </tr>
+  <tr>
+    <th style = "border-colapse:colapse">Femmes au dessus de 18 ans</th>
+    <td>16%</td>
+    <td>84%</td>
+  </tr>
+  <tr>
+    <td colspan = "4">Note: Les yeu poches n'entrainent aucune lesion permanente</td>
+  </tr>
+</table>
+  </body>
+</html>
