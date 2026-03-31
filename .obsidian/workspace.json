@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Int POO/16 mars.md",
+                "file": "English/310326.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "16 mars"
+              "title": "310326"
             }
           }
         ]
@@ -186,8 +186,11 @@
   },
   "active": "7d5d901d580fb046",
   "lastOpenFiles": [
-    "Fondement de l'informatique/COUR 1.md",
+    "vnk.md",
+    "English/310326.md",
     "Int POO/16 mars.md",
+    "English/Untitled",
+    "Fondement de l'informatique/COUR 1.md",
     "Int POO",
     "Fondement de l'informatique/25112025.md",
     "Fondement de l'informatique/04 nov.md",
@@ -212,8 +215,6 @@
     "System d'exploitation.md",
     "Mathematiques discretes/Chapitre 1.md",
     "CMI/Sans titre.md",
-    "Structure des ordinateurs/CM2.md",
-    "Structure des ordinateurs/CM1.md",
     "TD3 ex 4_4bis.png",
     "TD5 Ex3.png",
     "Sytaxe pointeurs.png",
@@ -226,7 +227,6 @@
     "C/TP6/Exo6",
     "C/TP6/Exo5",
     "C/TP6/Exo6.c",
-    "C/TP6/Exo5.c",
     "Analyse 1/Ressources/{211EAA98-59B4-4B49-B44B-B623B2909C49}.png",
     "Untitled.canvas"
   ]
