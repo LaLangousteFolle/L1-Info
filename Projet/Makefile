@@ -5,4 +5,4 @@ SRC =   apc.cpp\
 FLAGS = -Wall -Wextra -Werror
 
 all :
-	g++ $(SRC) -o main
+	g++ $(FLAGS) $(SRC) -o main

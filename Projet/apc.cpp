@@ -56,18 +56,14 @@ Arbre::Arbre(string file)
 
     while(! F.eof())
     {
+
         string str;
         getline(F,str,'\n');
 
-        string str = "string";
-        char *cstr = str.data();
-        while(c != '\0')
-        {
-
-        }
+        char *cstr = str.data();//return char*
+        addWord(cstr);
     }
-
-    file.close();
+    F.close();
 }
 
 void Noeud::displayNoeud(void)
