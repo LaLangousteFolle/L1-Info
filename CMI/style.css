@@ -1,0 +1,24 @@
+body {
+
+margin : 10px;
+font-family : sans-serif;
+background-color : blue;
+
+} 
+
+.container {
+
+display : flex;
+justify-content : center;
+align-items : center;
+height : 60vmin; 
+
+}
+
+#number {
+
+font-size : 7vmin;
+font-weight : bold;
+color : white;
+
+}
