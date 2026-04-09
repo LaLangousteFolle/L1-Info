@@ -1,53 +1,84 @@
-body 
-{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	margin: 0px;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #f4f5f7;
+    font-family: sans-serif;
 }
 
 .controls {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    background: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
 }
 
-
-
-.value
-{
-	font-size: 2rem;
-	font-weight: bold;
-	width: 3.5rem;
-	text-align: center;
-	margin-bot: 1rem;
+.label {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #888;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-.buttons
- {
-	display: flex;
-	gap: 1rem;
- }
-
-.btn
-{
-	padding: 10px 20px;
-	font-size: 1rem;
-	border: none;
-	border-radius: 6px;
-	cursor: pointer;
-	transition: opacity 0.15s;
+.value {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    min-width: 4rem;
+    text-align: center;
+    color: #222;
+    transition: color 0.2s;
 }
 
-.btn:hover {opacity: 0.85;}
-.btn:active {opacity: 0.7; transform: scale(0.97)}
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
 
-.btn-increase {background-color: #7cfc00; color:#fff}
-.btn-decrease {background-color: #ff0000; color:#fff}
-.btn-commit {background-color: #00bfff; color:#fff}
-.btn-reset {background-color: #000000; color:#fff}
+.btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    font-weight: 500;
+}
 
+.btn:hover  { opacity: 0.85; }
+.btn:active { opacity: 0.7; transform: scale(0.97); }
 
+.btn-increase { background: #4caf50; color: #fff; }
+.btn-decrease { background: #f44336; color: #fff; }
+.btn-commit   { background: #2196f3; color: #fff; }
+.btn-reset    { background: #555;    color: #fff; }
+
+.history {
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.history th, .history td {
+    padding: 6px 12px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.history thead {
+    background: #f0f0f0;
+    font-weight: 600;
+}
+
+.history tbody tr:hover {
+    background: #fafafa;
+}

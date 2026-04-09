@@ -1,0 +1,352 @@
+# ============================================================
+#  Compteur de personnes - OpenMV RT1062
+#  Méthode : Frame Differencing + Blob Detection
+#  Sortie  : +1 (entrée) ou -1 (sortie) sur UART / print
+# ============================================================
+#
+#  INSTALLATION PHYSIQUE RECOMMANDÉE :
+#  - Caméra montée en hauteur (plafond / linteau de porte),
+#    orientée vers le bas ou légèrement inclinée.
+#  - La zone de passage doit couvrir toute la largeur de l'image.
+#
+#  PRINCIPE DE DÉTECTION DU SENS :
+#  L'image est divisée en deux zones horizontales (haut / bas)
+#  appelées ZONE_A (y < mid_y) et ZONE_B (y > mid_y).
+#  Un blob qui entre par ZONE_A puis traverse ZONE_B  → ENTRÉE  (+1)
+#  Un blob qui entre par ZONE_B puis traverse ZONE_A  → SORTIE  (-1)
+#  (Adaptez la logique selon l'orientation de la caméra.)
+# ============================================================
+
+import sensor
+import image
+import time
+import math
+import pyb
+from machine import UART
+
+# ─────────────────────────────────────────────
+#  PARAMÈTRES RÉGLABLES
+# ─────────────────────────────────────────────
+
+usb = pyb.USB_VCP()
+# Résolution (QVGA = 320×240 bon équilibre vitesse/précision sur RT1062)
+FRAME_W = 320
+FRAME_H = 240
+
+# Seuil luminance pour la binarisation après diff (grayscale 0-255)
+# Augmenter si trop de faux positifs, diminuer si détection manquée.
+DIFF_THRESHOLD = (20, 255)
+
+# Filtres blob : taille minimale du blob pour être considéré
+MIN_PIXELS   = 200    # pixels actifs minimum
+MIN_AREA     = 400    # surface du rectangle englobant minimum
+
+# Fusion de blobs proches (True = plusieurs petits blobs → 1 grand)
+MERGE_BLOBS  = True
+MERGE_MARGIN = 20     # pixels de marge pour la fusion
+
+# Mise à jour du fond adaptatif (évite la saturation sur fond fixe)
+BG_UPDATE_FRAMES = 60   # toutes les N frames
+BG_UPDATE_ALPHA  = 64   # [0-256] force du blend (64 ≈ 25 %)
+
+# Ligne virtuelle de comptage : milieu vertical de l'image
+MID_Y = FRAME_H // 2
+
+# Délai de debounce entre deux événements (ms) — évite le double comptage
+DEBOUNCE_MS = 800
+
+# Nombre de frames consécutives où un blob doit être visible pour
+# être confirmé (anti-bruit)
+CONFIRM_FRAMES = 3
+
+# Distance max (pixels) pour associer un blob détecté à un tracker existant
+MAX_DIST = 80
+
+# Nombre de frames max d'absence avant de supprimer un tracker
+MAX_MISSING = 15
+
+# UART pour renvoyer +1 / -1 vers un MCU externe (optionnel)
+# Mettre USE_UART = False pour n'utiliser que print() / USB-Serial
+USE_UART    = False
+UART_BUS    = 3       # Pin P4/P5 sur RT1062
+UART_BAUD   = 115200
+
+# ─────────────────────────────────────────────
+#  INITIALISATION CAPTEUR
+# ─────────────────────────────────────────────
+
+sensor.reset()
+sensor.set_pixformat(sensor.GRAYSCALE)   # Grayscale → plus rapide + suffisant
+sensor.set_framesize(sensor.QVGA)        # 320×240
+sensor.set_windowing((FRAME_W, FRAME_H))
+sensor.skip_frames(time=2000)            # attendre stabilisation AEC/AGC
+sensor.set_auto_gain(False)              # désactiver AGC pour fond stable
+sensor.set_auto_whitebal(False)          # idem balance des blancs
+sensor.set_auto_exposure(False,
+    exposure_us=sensor.get_exposure_us()) # figer l'exposition
+
+clock = time.clock()
+
+# ─────────────────────────────────────────────
+#  BUFFER DE FOND (frame différencing adaptatif)
+# ─────────────────────────────────────────────
+
+# Allouer le second frame buffer dans la RAM frame buffer (beaucoup plus grande)
+extra_fb = sensor.alloc_extra_fb(FRAME_W, FRAME_H, sensor.GRAYSCALE)
+
+print("Initialisation du fond... restez hors du champ.")
+sensor.skip_frames(time=2000)
+extra_fb.replace(sensor.snapshot())
+print("Fond capturé. Démarrage du comptage.")
+
+# ─────────────────────────────────────────────
+#  UART (optionnel)
+# ─────────────────────────────────────────────
+
+uart = None
+if USE_UART:
+    uart = UART(UART_BUS, UART_BAUD)
+
+# ─────────────────────────────────────────────
+#  CLASSE TRACKER DE BLOB
+# ─────────────────────────────────────────────
+
+class BlobTracker:
+    """
+    Suivi d'un blob mobile entre les frames.
+    Implémente une machine à états pour détecter le franchissement
+    de la ligne virtuelle et déterminer le sens de déplacement.
+
+    États possibles :
+      'idle'   → blob visible mais pas encore classifié
+      'zone_a' → blob présent dans la zone haute (y < MID_Y)
+      'zone_b' → blob présent dans la zone basse (y >= MID_Y)
+      'done'   → franchissement validé, en attente de suppression
+    """
+
+    _next_id = 0
+
+    def __init__(self, cx, cy):
+        self.id       = BlobTracker._next_id
+        BlobTracker._next_id += 1
+        self.cx       = cx
+        self.cy       = cy
+        self.history  = [(cx, cy)]   # trajectoire
+        self.missing  = 0            # frames sans détection
+        self.confirmed= 0            # frames confirmées consécutives
+        self.state    = 'idle'
+        self.entry_zone = None       # zone d'entrée initiale
+        self._update_zone(cy)
+
+    def _update_zone(self, cy):
+        """Détermine la zone courante selon cy."""
+        return 'zone_a' if cy < MID_Y else 'zone_b'
+
+    def update(self, cx, cy):
+        """Met à jour la position du tracker avec un nouveau blob associé."""
+        self.cx      = cx
+        self.cy      = cy
+        self.missing = 0
+        self.confirmed += 1
+        self.history.append((cx, cy))
+        if len(self.history) > 30:
+            self.history.pop(0)
+
+        current_zone = self._update_zone(cy)
+
+        if self.confirmed >= CONFIRM_FRAMES:
+            if self.state == 'idle':
+                # Première confirmation : enregistrer la zone d'entrée
+                self.state      = current_zone
+                self.entry_zone = current_zone
+            elif self.state != 'done':
+                # Mise à jour de la zone courante
+                if current_zone != self.state:
+                    # → Changement de zone détecté !
+                    self.state = current_zone
+
+    def check_crossing(self):
+        """
+        Vérifie si le blob a franchi la ligne virtuelle.
+        Retourne +1 (entrée), -1 (sortie), ou 0 (pas encore).
+        Le franchissement est validé quand le blob a commencé dans
+        une zone et se trouve maintenant dans l'autre ET qu'il
+        se trouve suffisamment loin de la ligne (évite les oscillations).
+        """
+        if self.confirmed < CONFIRM_FRAMES:
+            return 0
+        if self.state == 'done':
+            return 0
+        if self.entry_zone is None:
+            return 0
+
+        # Vérifier que la trajectoire couvre bien les deux zones
+        ys = [p[1] for p in self.history]
+        min_y = min(ys)
+        max_y = max(ys)
+        span  = max_y - min_y
+
+        # Le blob doit avoir traversé au moins 30% de la hauteur
+        if span < FRAME_H * 0.20:
+            return 0
+
+        # Vérifier le franchissement effectif
+        crossed = (min_y < MID_Y - 10) and (max_y > MID_Y + 10)
+        if not crossed:
+            return 0
+
+        # Sens : entrée = A→B, sortie = B→A
+        current_zone = self._update_zone(self.cy)
+        if self.entry_zone == 'zone_a' and current_zone == 'zone_b':
+            self.state = 'done'
+            return 1    # ENTRÉE
+        elif self.entry_zone == 'zone_b' and current_zone == 'zone_a':
+            self.state = 'done'
+            return -1   # SORTIE
+
+        return 0
+
+    def mark_missing(self):
+        """Incrémente le compteur d'absence."""
+        self.missing += 1
+
+    def is_expired(self):
+        """Retourne True si le tracker doit être supprimé."""
+        return self.missing > MAX_MISSING or self.state == 'done'
+
+    def distance_to(self, cx, cy):
+        """Distance euclidienne au point (cx, cy)."""
+        return math.sqrt((self.cx - cx) ** 2 + (self.cy - cy) ** 2)
+
+
+# ─────────────────────────────────────────────
+#  ÉTAT GLOBAL
+# ─────────────────────────────────────────────
+
+trackers         = []       # liste des BlobTracker actifs
+people_count     = 0        # compteur net (entrées - sorties)
+frame_count      = 0
+last_event_ms    = 0        # timestamp dernier événement (debounce)
+
+# ─────────────────────────────────────────────
+#  FONCTIONS UTILITAIRES
+# ─────────────────────────────────────────────
+
+def send_event(direction):
+    """
+    Émet l'événement +1 / -1.
+    - Print USB-Serial (toujours)
+    - UART si activé
+    """
+    global people_count, last_event_ms
+
+    now = time.ticks_ms()
+    if time.ticks_diff(now, last_event_ms) < DEBOUNCE_MS:
+        return   # debounce : ignorer événement trop rapide
+    last_event_ms = now
+
+    people_count += direction
+    label = "ENTREE (+1)" if direction == 1 else "SORTIE (-1)"
+    print("[COMPTEUR] {} | Total présent : {}".format(label, people_count))
+
+    if usb:
+        usb.send("{}\n".format(direction))
+
+
+def associate_blobs(blobs, trackers_list):
+    """
+    Associe chaque blob détecté au tracker le plus proche (greedy matching).
+    Retourne (matched, unmatched_blobs, unmatched_trackers).
+    """
+    matched            = {}   # tracker_id → blob
+    used_blob_indices  = set()
+
+    for tracker in trackers_list:
+        best_dist  = MAX_DIST
+        best_idx   = -1
+        for i, blob in enumerate(blobs):
+            if i in used_blob_indices:
+                continue
+            d = tracker.distance_to(blob.cx(), blob.cy())
+            if d < best_dist:
+                best_dist = d
+                best_idx  = i
+        if best_idx >= 0:
+            matched[tracker.id] = best_idx
+            used_blob_indices.add(best_idx)
+
+    unmatched_blobs = [i for i in range(len(blobs)) if i not in used_blob_indices]
+    return matched, unmatched_blobs
+
+
+# ─────────────────────────────────────────────
+#  BOUCLE PRINCIPALE
+# ─────────────────────────────────────────────
+
+while True:
+    clock.tick()
+    img = sensor.snapshot()
+    frame_count += 1
+
+    # ── 1. Mise à jour adaptative du fond ────────────────────────────
+    if frame_count % BG_UPDATE_FRAMES == 0:
+        # Blend léger du fond vers le frame courant AVANT la diff
+        # pour compenser les changements d'éclairage lents.
+        img.blend(extra_fb, alpha=(256 - BG_UPDATE_ALPHA))
+        extra_fb.replace(img)
+        # Re-snapshot pour avoir le frame original pour la diff
+        img = sensor.snapshot()
+
+    # ── 2. Frame differencing ─────────────────────────────────────────
+    #  img devient abs(img_courant - fond)
+    img.difference(extra_fb)
+
+    # ── 3. Binarisation + morphologie ────────────────────────────────
+    img.binary([DIFF_THRESHOLD])
+    img.erode(1)    # supprimer le bruit fin (1 pixel de rayon)
+    img.dilate(2)   # refermer les trous dans les blobs
+
+    # ── 4. Détection des blobs ────────────────────────────────────────
+    blobs = img.find_blobs(
+        [DIFF_THRESHOLD],
+        pixels_threshold = MIN_PIXELS,
+        area_threshold   = MIN_AREA,
+        merge            = MERGE_BLOBS,
+        margin           = MERGE_MARGIN
+    )
+
+    # ── 5. Association blob ↔ tracker ────────────────────────────────
+    matched, unmatched_blobs = associate_blobs(blobs, trackers)
+
+    # Mettre à jour les trackers associés
+    for tracker in trackers:
+        if tracker.id in matched:
+            blob = blobs[matched[tracker.id]]
+            tracker.update(blob.cx(), blob.cy())
+        else:
+            tracker.mark_missing()
+
+    # Créer de nouveaux trackers pour les blobs non associés
+    for bi in unmatched_blobs:
+        blob = blobs[bi]
+        trackers.append(BlobTracker(blob.cx(), blob.cy()))
+
+    # ── 6. Vérification des franchissements ──────────────────────────
+    for tracker in trackers:
+        result = tracker.check_crossing()
+        if result != 0:
+            send_event(result)
+
+    # ── 7. Nettoyage des trackers expirés ────────────────────────────
+    trackers = [t for t in trackers if not t.is_expired()]
+
+    # ── 8. Affichage debug (ligne virtuelle + blobs) ──────────────────
+    #  Commenter ces lignes pour gagner quelques FPS en production.
+    img.draw_line(0, MID_Y, FRAME_W, MID_Y, color=127, thickness=2)
+    for blob in blobs:
+        img.draw_rectangle(blob.rect(), color=255, thickness=2)
+        img.draw_cross(blob.cx(), blob.cy(), color=255, size=10)
+
+    # ── 9. Stats FPS (USB Serial) ─────────────────────────────────────
+    # Décommenter la ligne suivante pour voir les FPS en temps réel :
+    # print("FPS:", clock.fps(), "| Trackers:", len(trackers))
