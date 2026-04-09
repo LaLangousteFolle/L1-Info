@@ -15,7 +15,7 @@ $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 catch (PDOException $a)
 {
-die("Erreur de co : " . $a -> getMessage());
+die("Erreur de connexion : " . $a -> getMessage());
 }
 
 return $pdo;

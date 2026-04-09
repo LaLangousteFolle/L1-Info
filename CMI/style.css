@@ -1,24 +1,53 @@
-body {
-
-margin : 10px;
-font-family : sans-serif;
-background-color : blue;
-
-} 
-
-.container {
-
-display : flex;
-justify-content : center;
-align-items : center;
-height : 60vmin; 
-
+body 
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0px;
 }
 
-#number {
-
-font-size : 7vmin;
-font-weight : bold;
-color : white;
-
+.controls {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
 }
+
+
+
+.value
+{
+	font-size: 2rem;
+	font-weight: bold;
+	width: 3.5rem;
+	text-align: center;
+	margin-bot: 1rem;
+}
+
+.buttons
+ {
+	display: flex;
+	gap: 1rem;
+ }
+
+.btn
+{
+	padding: 10px 20px;
+	font-size: 1rem;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: opacity 0.15s;
+}
+
+.btn:hover {opacity: 0.85;}
+.btn:active {opacity: 0.7; transform: scale(0.97)}
+
+.btn-increase {background-color: #7cfc00; color:#fff}
+.btn-decrease {background-color: #ff0000; color:#fff}
+.btn-commit {background-color: #00bfff; color:#fff}
+.btn-reset {background-color: #000000; color:#fff}
+
+
