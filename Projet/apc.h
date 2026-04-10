@@ -18,6 +18,7 @@ class Arbre
   void addWord(char*);
   void display(void);
   bool search(char*);
+  void deleteWord(char*);
 };
 
 class Noeud
@@ -32,6 +33,7 @@ class Noeud
   Noeud(void);
   Noeud(char c);
   Noeud(Noeud&);
+  void addWord(char*);
   void displayAll(string);
   void setSon(char son);
   void setBro(char bro);

@@ -35,7 +35,7 @@ bool Arbre::search(char *word)
     {
         if (c == nullptr)
                 return(false);
-        
+
         if (c->info == word[i])
         {
             i++;
@@ -59,29 +59,14 @@ Arbre::Arbre(void)
 
 void Arbre::addWord(char *word)
 {
-    Noeud *curseur = racine->fils;
-    Noeud *deepnest = racine->fils;
-    int i = 0;
-    if (racine->frere == nullptr || racine->frere->info > word[i])
-    {
-        racine = new Noeud(word[i]);
-        racine->frere = curseur;
-        i++;
-    }
-    while(word[i] != '\0')
-    {
-        while(curseur->frere != nullptr && curseur->frere->info < word[i])
-        {
-            curseur = curseur -> frere;
-        }
-        Noeud *temp = curseur->frere;
-        curseur->frere= new Noeud(word[i]);
-        curseur->frere->frere=temp;
-        i++;
-        deepnest = deepnest ->fils;
-
-    }
+    
 }
+
+void Noeud::addWord(char *word)
+{
+    
+}
+
 Arbre::Arbre(string file)
 {
     racine = new Noeud('!');
@@ -124,12 +109,45 @@ void Noeud::displayAll(string word)
         cout << word << endl;
     if (fils != nullptr)
         fils -> displayAll(word + info);
-    if (fils != nullptr)
-        frere -> displayAll(word + info);
-}   
+    if (frere != nullptr)
+        frere -> displayAll(word);
+}
 
 void Arbre::display(void)
 {
     if (racine != nullptr)
         racine->displayAll("");
 }
+
+/* ss
+void Arbre::deleteWord(char* word)
+{
+    Noeud *c = racine->fils;
+    Noeud *star_destroyer = racine->fils;
+    Noeud *c_bro= racine->fils
+    if (search(word))
+    {
+        int i = 0;
+        while (word[i])
+        {
+            c_bro = c->fils->frere;
+            if (word[i] == c->info)
+            {
+                i++;
+                c = c ->fils;
+
+                if (c->fils->frere != nullptr)
+                    star_destroyer = c;
+            }
+            else
+                c = c->frere;
+        }
+        if(star_destroyer->fils->fils != nullptr)
+            delete star_destroyer->fils->fils;
+        else
+        {
+         star_destroyer->fils->frere =
+        }
+    }
+}
+*/
