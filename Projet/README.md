@@ -8,3 +8,14 @@
 - Did the Makefile (with -Wall -Werror -Wextra debug flags)
 
 
+# Jour 10/04
+
+### Addings
+- Added destructors for Arbre and Noeud
+- Added Search func
+- Added copy constructor
+- Reworked Display function
+
+### TO DO
+- Add test to main()
+- 

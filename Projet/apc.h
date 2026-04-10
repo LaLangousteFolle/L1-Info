@@ -7,14 +7,17 @@ class Noeud;
 
 class Arbre
 {
+
   Noeud * racine;
 
   public:
   Arbre(void);
   ~Arbre(void);
+  Arbre(Arbre&);
   Arbre(string file);
-  void addWord(char *word);
-
+  void addWord(char*);
+  void display(void);
+  bool search(char*);
 };
 
 class Noeud
@@ -25,9 +28,11 @@ class Noeud
 
   public:
 
+  ~Noeud(void);
   Noeud(void);
   Noeud(char c);
-  void displayNoeud(void);
+  Noeud(Noeud&);
+  void displayAll(string);
   void setSon(char son);
   void setBro(char bro);
 };
