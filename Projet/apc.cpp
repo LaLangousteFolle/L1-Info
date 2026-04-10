@@ -61,11 +61,15 @@ void Arbre::addWord(char *word)
 {
     
 }
-
+/* 
+ VALVE PLEASE FIX
 void Noeud::addWord(char *word)
 {
-    
+    if (! word)
+        return;
+    new Noeud(word[0]);
 }
+*/
 
 Arbre::Arbre(string file)
 {
