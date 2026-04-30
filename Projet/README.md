@@ -27,5 +27,7 @@ cf.[commit 1](https://github.com/LaLangousteFolle/L1-Info/commit/40c61f13f042e5a
 - Add test to main()
 - Fix AddWord -> Use Noeud to create arbre
 
+# 28/04
+
 
 ###### ALL COMMITS ARE DONE ON [MY PERSONNAL GITHUB REPO](https://github.com/LaLangousteFolle/L1-Info/tree/main/Projet)

@@ -56,12 +56,46 @@ Arbre::Arbre(void)
 {
     racine = new Noeud('!');
 }
-
+void Noeud::addSon(char l)
+{
+    if (! fils)
+    {
+        fils = new Noeud(l);
+        return();
+    }
+    if (l < fils->info)
+    {
+        Noeud *temp = fils;
+        fils = new Noeud(fils);
+        fils = temp;
+        return();
+    }
+    Noeud *current = fils;
+    while (current !=  nullptr)
+    {
+        if (current->info == letter)
+            return();
+        if (current->frere == nullptr)
+        {
+            current->frere = new Noeud(l);
+            return();
+        }
+        if (current->frere)
+        {
+            if (l < current -> info)
+            {
+                Noeud *node = new Noeud(l);
+                node->frere = current -> frere;
+                current->frere = node;
+            }
+        }
+    }
+}
 void Arbre::addWord(char *word)
 {
-    
+
 }
-/* 
+/*
  VALVE PLEASE FIX
 void Noeud::addWord(char *word)
 {
@@ -120,7 +154,7 @@ void Noeud::displayAll(string word)
 void Arbre::display(void)
 {
     if (racine != nullptr)
-        racine->displayAll("");
+        racine->fils->displayAll("");
 }
 
 /* ss
