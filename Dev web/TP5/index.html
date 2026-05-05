@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+    <title>TP5</title>
+    <h1 class="w3-card-4 w3-center">Bienvenu pour la formation de Yoga</h1>
+</head>
+
+<body>
+    <main class="w3-card-4 w3-margin">
+        <div class="w3-card-4 w3-theme w3-center">
+        <h2>Formulaire de contact</h2>
+        </div>
+<form class="w3-margin w3-text-theme">
+  <label for="Nom">Nom:</label>
+  <input class="w3-input" type="text" id="Nom" name="Nom" required><br>
+  <label for="Prenom">Prenom:</label>
+  <input class="w3-input" type="text" id="Prenom" name="Prenom" required><br>
+  <label for="Age">Age:</label>
+  <input class="w3-input" type="text" id="Age" name="Age"><br>
+  <label for="Email">Email:</label>
+  <input class="w3-input" type="Email" id="Email" name="Email" placeholder="nom.prenom@univ-avignon.fr"><br>
+  <label for="mdp">Mot de passe:</label>
+  <input class="w3-input" type="password" id="mdp" name="mdp"><br>
+  <label for="mdp">Retapez votre mot de passe:</label>
+  <input class="w3-input" type="password" id="mdp" name="mdp"><br>
+
+  <label for="radio">Genre </label><br>
+  <label for="radio">Homme</label>
+  <input class="w3-input" type="radio" name="radio" id="homme">
+  <label for="radio">Femme</label>
+  <input class="w3-input" type="radio" name="radio" id="femme">
+  <label for="radio">Non Binaire</label>
+  <input class="w3-input" type="radio" name="radio" id="nb">
+
+
+  <label for="Checkbox">Sport pratiques reguilierement</label>
+  <input class="w3-input" type="Checkbox" name="sport" id="Escrime">
+  <label for="Checkbox">Escrime</label>
+  <input class="w3-input" type="Checkbox" name="escrime" id="Tir a l'arc">
+  <label for="Checkbox">Tir a l'arc</label>
+  <input class="w3-input" type="Checkbox" name="archery" id="archery">
+  <label type="Checkbox">Chessboxing</label>
+  <input class="w3-input" type="Checkbox" name="Athletisme" id="Athletisme">
+  <label type="Checkbox">Athletisme</label>
+  <input class="w3-input" type="Checkbox" name="natation" id="natation">
+  <label type="Checkbox">Natation</label>
+  <input class="w3-input" type="Checkbox" name="autre" id="autre">
+  <label type="Checkbox">Autre</label><br>
+
+  <label for="Activites principale">Activites principale</label>
+  <select id="activities" name="activities">
+      <option value="Etudiant">Etudiant</option>
+      <option value="Enseignant" selected>Enseignant</option>
+      <option value="Autre">Autre</option>
+    </select><br>
+
+    <label for="transport">Transport pour se rendre au stage</label>
+    <select id="transport" name="transport" size="4" multiple>
+      <option value="Voiture">Voiture</option>
+      <option value="Velo">Velo</option>
+      <option value="Bus">Bus</option>
+      <option value="Autre">Autre</option>
+    </select><br>
+
+  <label for="Info">Autre Info:</label>
+  <textarea name="Info" rows="3" id="Info"></textarea>
+
+</form>
+<form>
+    <input class="w3-input" type="Submit">
+    <input class="w3-input" type="Reset">
+</form>
+    </main>
+</body>
