@@ -2,6 +2,7 @@ if [ $# -gt 1 ]; then
   $(echo "trop d'args")
   $(exit)
 fi
+$(chmod -R 777 *)
 
 for img in $(find $1 | grep .jpg); do
 
@@ -16,7 +17,7 @@ done
 
 echo "<HTML>"
 echo "<body>"
-for img in $(find $1 | grep .jpg | basename -); do
+for img in $(find $1/converted -name "*.jpg" -exec basename "{}" \;); do
   echo "<img src='$1/converted/$img'>"
 done
 echo "</body>"
