@@ -1,6 +1,5 @@
-SRC =   apc.cpp\
-        tab.cpp\
-        main.cpp\
+SRC =	apc.cpp\
+	main.cpp\
 
 FLAGS = -Wall -Wextra -Werror
 

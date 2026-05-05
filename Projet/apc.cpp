@@ -1,6 +1,13 @@
 #include "apc.h"
 
 
+Noeud::Noeud(void)
+{
+    info = '\0';
+    fils = nullptr;
+    frere = nullptr;
+}
+
 Noeud::Noeud(char c)
 {
     info = c;
@@ -17,112 +24,6 @@ Noeud::~Noeud(void)
         delete frere;
 }
 
-void Noeud::setSon(char son)
-{
-    fils = new Noeud(son);
-}
-
-void Noeud::setBro(char bro)
-{
-    frere = new Noeud(bro);
-}
-
-bool Arbre::search(char *word)
-{
-    Noeud *c = racine->fils;
-    int i = 0;
-    while (word[i])
-    {
-        if (c == nullptr)
-                return(false);
-
-        if (c->info == word[i])
-        {
-            i++;
-            c = c->fils;
-        }
-    }
-    c = c->frere;
-    return(true);
-}
-
-Arbre::~Arbre(void)
-{
-    if (racine != nullptr)
-        delete racine;
-}
-
-Arbre::Arbre(void)
-{
-    racine = new Noeud('!');
-}
-void Noeud::addSon(char l)
-{
-    if (! fils)
-    {
-        fils = new Noeud(l);
-        return();
-    }
-    if (l < fils->info)
-    {
-        Noeud *temp = fils;
-        fils = new Noeud(fils);
-        fils = temp;
-        return();
-    }
-    Noeud *current = fils;
-    while (current !=  nullptr)
-    {
-        if (current->info == letter)
-            return();
-        if (current->frere == nullptr)
-        {
-            current->frere = new Noeud(l);
-            return();
-        }
-        if (current->frere)
-        {
-            if (l < current -> info)
-            {
-                Noeud *node = new Noeud(l);
-                node->frere = current -> frere;
-                current->frere = node;
-            }
-        }
-    }
-}
-void Arbre::addWord(char *word)
-{
-
-}
-/*
- VALVE PLEASE FIX
-void Noeud::addWord(char *word)
-{
-    if (! word)
-        return;
-    new Noeud(word[0]);
-}
-*/
-
-Arbre::Arbre(string file)
-{
-    racine = new Noeud('!');
-    fstream F;
-    F.open(file, ios::in);
-
-    while(! F.eof())
-    {
-
-        string str;
-        getline(F,str,'\n');
-
-        char *cstr = str.data();//change string to char*
-        addWord(cstr);
-    }
-    F.close();
-}
-
 Noeud::Noeud(Noeud& ne)
 {
     if (this != &ne)
@@ -133,59 +34,138 @@ Noeud::Noeud(Noeud& ne)
     }
 }
 
-Arbre::Arbre(Arbre& abr)
+void Noeud::setSon(char son)
 {
-    if (this != &abr)
-        {
-            racine = abr.racine;
-        }
+    fils = new Noeud(son);
 }
 
+void Noeud::setBro(char bro)
+{
+    frere = new Noeud(bro);
+}
+
+// Insère la lettre l parmi les fils, en ordre croissant (pas de doublon).
+void Noeud::addSon(char l)
+{
+    if (!fils)
+    {
+        fils = new Noeud(l);
+        return;
+    }
+    if (l == fils->info)
+        return;
+    if (l < fils->info)
+    {
+        Noeud *node = new Noeud(l);
+        node->frere = fils;
+        fils = node;
+        return;
+    }
+    Noeud *current = fils;
+    while (current->frere != nullptr)
+    {
+        if (current->frere->info == l)
+            return;
+        if (l < current->frere->info)
+        {
+            Noeud *node = new Noeud(l);
+            node->frere = current->frere;
+            current->frere = node;
+            return;
+        }
+        current = current->frere;
+    }
+    current->frere = new Noeud(l);
+}
+
+// Descend lettre par lettre et ajoute un noeud '\0' pour marquer la fin du mot.
+void Arbre::addWord(char *word)
+{
+    int i = 0;
+    Noeud *current = racine;
+    while (word[i] != '\0')
+    {
+        current->addSon(word[i]);
+        current = current->fils;
+        while (current->info != word[i])
+            current = current->frere;
+        i++;
+    }
+    current->addSon('\0');
+}
+
+// Affiche récursivement tous les mots : un noeud '\0' signale la fin d'un mot.
 void Noeud::displayAll(string word)
 {
-    if(this->info =='\0')
+    if (info == '\0')
         cout << word << endl;
     if (fils != nullptr)
-        fils -> displayAll(word + info);
+        fils->displayAll(word + info);
     if (frere != nullptr)
-        frere -> displayAll(word);
+        frere->displayAll(word);
 }
 
 void Arbre::display(void)
 {
-    if (racine != nullptr)
+    if (racine != nullptr && racine->fils != nullptr)
         racine->fils->displayAll("");
 }
 
-/* ss
-void Arbre::deleteWord(char* word)
+bool Arbre::search(char *word)
 {
     Noeud *c = racine->fils;
-    Noeud *star_destroyer = racine->fils;
-    Noeud *c_bro= racine->fils
-    if (search(word))
+    int i = 0;
+    while (word[i])
     {
-        int i = 0;
-        while (word[i])
+        if (c == nullptr)
+            return false;
+        if (c->info == word[i])
         {
-            c_bro = c->fils->frere;
-            if (word[i] == c->info)
-            {
-                i++;
-                c = c ->fils;
-
-                if (c->fils->frere != nullptr)
-                    star_destroyer = c;
-            }
-            else
-                c = c->frere;
+            i++;
+            c = c->fils;
         }
-        if(star_destroyer->fils->fils != nullptr)
-            delete star_destroyer->fils->fils;
         else
-        {
-         star_destroyer->fils->frere =
-        }
+            c = c->frere;
     }
+    return c != nullptr;
 }
-*/
+
+Arbre::Arbre(void)
+{
+    racine = new Noeud('!');
+}
+
+Arbre::~Arbre(void)
+{
+    if (racine != nullptr)
+        delete racine;
+}
+
+Arbre::Arbre(Arbre& abr)
+{
+    if (this != &abr)
+        racine = abr.racine;
+}
+
+Arbre::Arbre(string file)
+{
+    racine = new Noeud('!');
+    fstream F;
+    F.open(file, ios::in);
+    while (!F.eof())
+    {
+        string str;
+        getline(F, str, '\n');
+        if (!str.empty())
+            addWord(str.data());
+    }
+    F.close();
+}
+
+void Arbre::addSon(char *word)
+{
+    if (racine == nullptr)
+        racine = new Noeud(word[0]);
+    else
+        racine->addSon(word[0]);
+}

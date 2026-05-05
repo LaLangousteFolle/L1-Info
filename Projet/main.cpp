@@ -2,9 +2,14 @@
 
 int main(void)
 {
-    Arbre abr =  Arbre();
-    string str = "viande";
-    char* c = str.data();
-    Arbre abr2 = Arbre(c);
-    return(0);
+    Arbre abr;
+
+    string words[] = {"abc", "abricot", "bon", "bonjour", "vache", "viande", "violet"};
+    for (string &w : words)
+        abr.addWord(w.data());
+
+    cout << "Mots dans l'arbre :" << endl;
+    abr.display();
+
+    return 0;
 }
