@@ -162,6 +162,46 @@ Arbre::Arbre(string file)
     F.close();
 }
 
+
+int Noeud::totalWords(void){
+
+    if(info == '\0')
+    {
+        if (frere)
+            return(frere->totalWords() + 1);
+         return(1);
+    }
+    if (frere)
+        return(fils->totalWords()+frere->totalWords());
+    return(fils->totalWords());
+}
+
+int Arbre::totalWords(void){
+    if (racine)
+        return(racine->totalWords());
+    else
+     return(0);
+}
+
+int Noeud::longestWord(void){
+    if (info != '\0')
+    {
+        if(frere)
+        {
+            return(max(1 + fils->longestWord(), frere->longestWord()));
+        }
+        return(1 + fils->longestWord());
+    }
+    return(-1);
+}
+
+int Arbre::longestWord(void){
+    if (racine)
+        return(racine->longestWord());
+    else
+        return(0);
+}
+
 void Arbre::addSon(char *word)
 {
     if (racine == nullptr)
