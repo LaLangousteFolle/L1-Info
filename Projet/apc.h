@@ -21,6 +21,9 @@ class Arbre
   bool search(char*);
   void deleteWord(char*);
   int totalWords(void);
+  int longestWord(int depth);
+  void displayAll(string);
+  void saveToFile(string filename);
 };
 
 class Noeud
@@ -36,9 +39,9 @@ class Noeud
   Noeud(char c);
   Noeud(Noeud&);
   int totalWords(void);
-  void addWord(char*);
+  void addWord(const char*);
   void displayAll(string);
-  void addSon(char);
-  void setSon(char son);
   void setBro(char bro);
+  void saveToFile(ofstream &F, string word);
+  int longestWord(void);
 };

@@ -33,9 +33,38 @@ cf.[commit 1](https://github.com/LaLangousteFolle/L1-Info/commit/40c61f13f042e5a
 - Add test to main()
 - Fix AddWord -> Use Noeud to create arbre
 
+
 # Jour 28/04
 
 - Added addCharacter() func, worked on fix on delete word
 - Add test to main()
+
+# Jour 30/04
+
+- Patched main func that broke somehow??
+- Fixed delete word
+
+
+# Jour 01/04 (quick fix between two BDE meetings)
+- Added ternary operators (thanks Eliott :3)
+- Final version of displayAll 
+
+
+# Jour 07/04
+- Added search function
+- Added total words count func
+
+
+# Jour 14/04
+- Added added longestword func
+- Delete ternary operators for better readability 
+- Tinkering about question 10
+
+
+# Jour 18/04
+- Cleaned up headerfile of useless func and bad prototypes
+- Fixed memory issues with copy constructor
+- Fixed return of longestWord func
+- Fighted with github for the merging but finally managed to push everything
 
 ###### ALL COMMITS ARE DONE ON [MY PERSONNAL GITHUB REPO](https://github.com/LaLangousteFolle/L1-Info/tree/main/Projet)

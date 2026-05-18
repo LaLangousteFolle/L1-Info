@@ -26,12 +26,15 @@ Noeud::~Noeud(void)
 
 Noeud::Noeud(Noeud& ne)
 {
-    if (this != &ne)
-    {
-        info = ne.info;
-        fils = ne.fils;
-        frere = ne.frere;
-    }
+    info = ne.info;
+        if (ne.fils != nullptr)
+            fils = new Noeud(*ne.fils);
+        else
+            fils = nullptr;
+        if (ne.frere != nullptr)
+            frere = new Noeud(*ne.frere);
+        else
+            frere = nullptr;
 }
 
 void Noeud::setSon(char son)
@@ -79,7 +82,7 @@ void Noeud::addSon(char l)
 }
 
 // Descend lettre par lettre et ajoute un noeud '\0' pour marquer la fin du mot.
-void Arbre::addWord(char *word)
+void Arbre::addWord(const char *word)
 {
     int i = 0;
     Noeud *current = racine;
@@ -113,6 +116,7 @@ void Arbre::display(void)
 
 bool Arbre::search(char *word)
 {
+
     Noeud *c = racine->fils;
     int i = 0;
     while (word[i])
@@ -127,7 +131,13 @@ bool Arbre::search(char *word)
         else
             c = c->frere;
     }
-    return c != nullptr;
+    while (c != nullptr)
+    {
+        if (c->info == '\0')
+            return true;
+        c = c->frere;
+    }
+    return false;
 }
 
 Arbre::Arbre(void)
@@ -143,8 +153,10 @@ Arbre::~Arbre(void)
 
 Arbre::Arbre(Arbre& abr)
 {
-    if (this != &abr)
-        racine = abr.racine;
+    if (abr.racine != nullptr)
+            racine = new Noeud(*abr.racine);
+        else
+            racine = nullptr;
 }
 
 Arbre::Arbre(string file)
@@ -177,29 +189,58 @@ int Noeud::totalWords(void){
 }
 
 int Arbre::totalWords(void){
-    if (racine)
-        return(racine->totalWords());
-    else
-     return(0);
+    if (racine && racine->fils)
+            return racine->fils->totalWords();
+        return 0;
 }
 
-int Noeud::longestWord(void){
-    if (info != '\0')
+int Noeud::longestWord(int depth)
+{
+    int res = 0;
+
+    if (info == '\0')
+        res = depth;
+
+    if (info != '\0' && fils != nullptr)
     {
-        if(frere)
-        {
-            return(max(1 + fils->longestWord(), frere->longestWord()));
-        }
-        return(1 + fils->longestWord());
+        int f = fils->longestWord(depth + 1);
+        if (f > res)
+            res = f;
     }
-    return(-1);
+
+    if (frere != nullptr)
+    {
+        int f = frere->longestWord(depth);
+        if (f > res)
+            res = f;
+    }
+
+    return res;
 }
 
-int Arbre::longestWord(void){
-    if (racine)
-        return(racine->longestWord());
-    else
-        return(0);
+int Arbre::longestWord(void)
+{
+    if (!racine || !racine->fils)
+        return 0;
+    return racine->fils->longestWord(0);
+}
+
+void Noeud::saveToFile(ofstream &F, string word)
+{
+    if (info == '\0')
+        F << word << "\n";
+    if (fils != nullptr)
+        fils->saveToFile(F, word + info);
+    if (frere != nullptr)
+        frere->saveToFile(F, word);
+}
+
+void Arbre::saveToFile(string filename)
+{
+    ofstream F(filename);
+    if (racine != nullptr && racine->fils != nullptr)
+        racine->fils->saveToFile(F, "");
+    F.close();
 }
 
 void Arbre::addSon(char *word)
