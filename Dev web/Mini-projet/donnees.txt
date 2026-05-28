@@ -1,0 +1,2 @@
+1|Restaurant Universitaire du CERI|restaurant|2026|1|Desolant
+2|La Barre Haute|bar|2026|4|Franchement, cet établissement à mis la barre haute 🥁!
