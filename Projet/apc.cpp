@@ -19,17 +19,16 @@ Noeud::~Noeud(void)
 {
     info = '\0';
     if(fils != nullptr)
-        delete fils;  // supprime recursivement tous les fils
+        delete fils;  // supprime recursivement les fils
     if (frere != nullptr)
-        delete frere; // supprime recursivement tous les freres
+        delete frere; // supprime recursivement les freres
 }
 
-// deep copy : on recopie le noeud ET tous ses fils/freres
 Noeud::Noeud(Noeud &ne)
 {
     info = ne.info;
         if (ne.fils != nullptr)
-            fils = new Noeud(*ne.fils);  // cree un nouveau noeud copie du fils -> appel recursif
+            fils = new Noeud(*ne.fils);
         else
             fils = nullptr;
         if (ne.frere != nullptr)
